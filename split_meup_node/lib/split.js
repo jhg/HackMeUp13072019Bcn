@@ -9,7 +9,7 @@ function split(text, delimiter){
     let delimiter_remain = delimiter;
     let item = "";
     let ignored = "";
-    for (var i = 0; i < text.length; i++) {
+    for (let i = 0; i < text.length; i++) {
       if (delimiter_remain === "" && delimiter === ignored) {
         result.push(item);
         item = "";
