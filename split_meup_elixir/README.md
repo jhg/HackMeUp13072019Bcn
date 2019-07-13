@@ -10,7 +10,7 @@ by adding `split_meup` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:split_meup, "~> 0.1.0"}
+    {:split_meup_elixir, "~> 0.1.0"}
   ]
 end
 ```
