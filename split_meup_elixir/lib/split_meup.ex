@@ -48,8 +48,7 @@ defmodule SplitMeup do
     split_all(delimiter, text, delimiter, "", "", result ++ [item])
   end
   # Check delimiter and text byte by byte until find each delimiter in text
-  defp split_all(delimiter, text, delimiter_remain, item, ignored, result) do
-    <<first_text::size(8), text_remain::binary>> = text
+  defp split_all(delimiter, <<first_text::size(8), text_remain::binary>>, delimiter_remain, item, ignored, result) do
     <<first_delimiter::size(8), delimiter_remain::binary>> = delimiter_remain
     # Save partial delimiter as ignore and use ignore as part of item when match is not full
     if first_text == first_delimiter do
