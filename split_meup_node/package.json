@@ -1,0 +1,20 @@
+{
+  "name": "split_meup_node",
+  "version": "1.0.0",
+  "description": "Split a string",
+  "main": "lib/split.js",
+  "scripts": {
+    "test": "mocha lib/**/**.spec.js"
+  },
+  "keywords": [
+    "split",
+    "hackmeup",
+    "hackme"
+  ],
+  "author": "Jesús Hernández Gormaz",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
