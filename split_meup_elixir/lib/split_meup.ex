@@ -1,10 +1,10 @@
 defmodule SplitMeup do
   @moduledoc """
-  Documentation for SplitMeup.
+  Split function without to use libraries (also without standard library).
   """
 
   @doc """
-  Split.
+  Split a string looking a delimiter while check each byte and split items.
 
   ## Examples
 
