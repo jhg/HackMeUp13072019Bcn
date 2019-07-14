@@ -26,15 +26,17 @@ defmodule SplitMeup do
   """
   def split("", _), do: []
   def split(text, delimiter) do
-    split_all(delimiter, text, delimiter, "", "", [])
+    split_all(delimiter, text, delimiter)
   end
+
+  defp split_all(delimiter, text, delimiter_remain, item \\ "", ignored \\ "", result \\ [])
   # It has delimiter just in the end
   defp split_all(delimiter, "", "", item, ignored, result) when delimiter == ignored do
     # With this it's same way like when delimiter is just in start of string
     result ++ [item, ""]
   end
   # End of text to split
-  defp split_all(delimiter, "", _, item, ignored, result) do
+  defp split_all(delimiter, "", _delimiter_remain, item, ignored, result) do
     # Ignored could be a delimiter, then ignore it or partial delimiter, then a item
     if ignored == delimiter do
       result ++ [item]
@@ -43,9 +45,9 @@ defmodule SplitMeup do
     end
   end
   # Delimiter found
-  defp split_all(delimiter, text, _, item, ignored, result) when delimiter == ignored do
+  defp split_all(delimiter, text_remain, _delimiter_remain, item, ignored, result) when delimiter == ignored do
     # Delimiter ignored, continue for next item
-    split_all(delimiter, text, delimiter, "", "", result ++ [item])
+    split_all(delimiter, text_remain, delimiter, "", "", result ++ [item])
   end
   # Check delimiter and text byte by byte until find each delimiter in text
   defp split_all(delimiter, <<first_text::size(8), text_remain::binary>>, delimiter_remain, item, ignored, result) do
